@@ -6,28 +6,28 @@
 #    By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 13:11:58 by ggomes-v          #+#    #+#              #
-#    Updated: 2025/01/07 11:27:49 by ggomes-v         ###   ########.fr        #
+#    Updated: 2025/01/10 16:36:57 by ggomes-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 CC = cc
-CFLAGS = -Wall -Werror -Wextra -D BUFFER_SIZE
-SRCS = push_swap.c ft_error.c ft_checks.c
+CFLAGS = -Wall -Werror -Wextra
+FT_PRINTF = includes/ft_printf
+SRCS = srcs/push_swap.c\
+		srcs/ft_error.c\
+		srcs/ft_checks.c\
 
-NAME = push_swap.a
+NAME = push_swap
 PRIC = ar rcs
 RM = rm -f 
 OBJS = $(SRCS:.c=.o)
 
 ${NAME}:${OBJS}
 		${PRIC} ${NAME} ${OBJS}
-		cc push_swap.c push_swap.a
 		@echo "	╔═════════════════════════════════════╗"
 		@echo "	║ ✅ |${GREEN}All Files Compiled${RESET}     ║"
 		@echo "	╚═════════════════════════════════════╝"
 		
-%.o: %.c
-		${CC} ${CFLAGS} -c $< -o $@
 
 RESET = \033[0m      
 BOLD = \033[1m   
@@ -48,7 +48,7 @@ clean:
 	@echo "	╚═════════════════════════════════════╝"
  
 fclean: clean
-		${RM} ${NAME} a.out
+		${RM} ${NAME} ./a.out
 	@echo "	╔═════════════════════════════════════╗"
 	@echo "	║ 🗑️  |${CYAN}Full Clean Done!${RESET}    ║"
 	@echo "	╚═════════════════════════════════════╝"
