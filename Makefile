@@ -12,18 +12,35 @@
 
 CC = cc
 CFLAGS = -Wall -Werror -Wextra
-FT_PRINTF = includes/ft_printf
-SRCS = srcs/push_swap.c\
-		srcs/ft_error.c\
-		srcs/ft_checks.c\
+FT_PRINTF = includes/ft_printf/ft_printf.c\
+			includes/ft_printf/ft_putstr.c\
+			includes/ft_printf/ft_putnbr.c\
+			includes/ft_printf/ft_unsigned_int.c\
+			includes/ft_printf/ft_hexadecimal.c\
+			includes/ft_printf/ft_pointeraddress.c\
+			includes/ft_printf/ft_putchar.c\
+
+LIBFT = includes/libft/ft_split.c\
+		includes/libft/ft_atoi.c\
+		includes/libft/ft_putchar_fd.c\
+		includes/libft/ft_putstr_fd.c\
+		includes/libft/ft_putnbr_fd.c\
+		includes/libft/ft_putendl_fd.c\
+
+SRCS = push_swap.c\
+		ft_error.c\
+		ft_checks.c\
+		lst.c\
+		utils.c\
+
+ALL_SRCS = $(SRCS) $(FT_PRINTF) $(LIBFT)
 
 NAME = push_swap
-PRIC = ar rcs
-RM = rm -f 
-OBJS = $(SRCS:.c=.o)
+RM = rm -rf 
+OBJS = $(ALL_SRCS:.c=.o)
 
 ${NAME}:${OBJS}
-		${PRIC} ${NAME} ${OBJS}
+		${CC} ${CFLAGS} ${ALL_SRCS} -o ${NAME}
 		@echo "	╔═════════════════════════════════════╗"
 		@echo "	║ ✅ |${GREEN}All Files Compiled${RESET}     ║"
 		@echo "	╚═════════════════════════════════════╝"
@@ -48,7 +65,7 @@ clean:
 	@echo "	╚═════════════════════════════════════╝"
  
 fclean: clean
-		${RM} ${NAME} ./a.out
+		${RM} ${NAME}
 	@echo "	╔═════════════════════════════════════╗"
 	@echo "	║ 🗑️  |${CYAN}Full Clean Done!${RESET}    ║"
 	@echo "	╚═════════════════════════════════════╝"
