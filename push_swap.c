@@ -11,30 +11,32 @@
 /* ************************************************************************** */
 #include "push_swap.h"
 
-void     init_stack(t_list **stack, int ac, char **av)
+void init_stack(t_list **stack, int ac, char **av)
 {
     t_list  *new;
-    char **args;
-    int i;
+    char    **args;
+    int     i;
+    int     j;
 
-    i = 0;
-    if (ac == 2)
-        args = ft_split(av[1], ' ');
-    else
+    i = 1;
+    while (i < ac)
     {
-        i = 1;
-        args = av;
-    }
-    while (args[i])
-    {
-        new = ft_lstnew(ft_atoi(args[i]));
-        ft_lstadd_back(stack, new);
+        args = ft_split(av[i], ' ');
+        j = 0;
+        while (args[j])
+        {
+            new = ft_lstnew(ft_atol(args[j]));
+            ft_lstadd_back(stack, new);
+            j++;
+        }
+        ft_free(args);
         i++;
     }
-    if (ac == 2)
-        ft_free(args);
 }
-
+void    sort_stack(t_list **stack_a, t_list **stack_b)
+{
+    
+}
 
 int     main(int ac, char **av)
 {
@@ -51,9 +53,15 @@ int     main(int ac, char **av)
     *stack_a = NULL;
     *stack_b = NULL;
     init_stack(stack_a, ac, av);
+    if (is_sorted(*stack_a) == 1)
+    {
+        ft_lstfree(stack_a);
+        ft_lstfree(stack_b);
+        return (0);
+    }
+    sort_stack(stack_a, stack_b);
     printlist(*stack_a);
     ft_lstfree(stack_a);
     ft_lstfree(stack_b);
-
     return (0);
 }

@@ -6,7 +6,7 @@
 #    By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 13:11:58 by ggomes-v          #+#    #+#              #
-#    Updated: 2025/01/10 16:36:57 by ggomes-v         ###   ########.fr        #
+#    Updated: 2025/01/21 16:04:17 by ggomes-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -26,46 +26,39 @@ LIBFT = includes/libft/ft_split.c\
 		includes/libft/ft_putstr_fd.c\
 		includes/libft/ft_putnbr_fd.c\
 		includes/libft/ft_putendl_fd.c\
+		includes/libft/ft_atol.c\
 
 SRCS = push_swap.c\
-		ft_error.c\
 		ft_checks.c\
 		lst.c\
 		utils.c\
 
-ALL_SRCS = $(SRCS) $(FT_PRINTF) $(LIBFT)
+ALL_SRCS = $(SRCS) $(FT_PRINTF) $(LIBFT) 
 
 NAME = push_swap
 RM = rm -rf 
 OBJS = $(ALL_SRCS:.c=.o)
 
+all:${NAME}
+
 ${NAME}:${OBJS}
-		${CC} ${CFLAGS} ${ALL_SRCS} -o ${NAME}
-		@echo "	╔═════════════════════════════════════╗"
-		@echo "	║ ✅ |${GREEN}All Files Compiled${RESET}     ║"
-		@echo "	╚═════════════════════════════════════╝"
-		
+	@${CC} ${CFLAGS} ${ALL_SRCS} -o ${NAME}
+	@echo "	╔═════════════════════════════════════╗"
+	@echo "	║ ✅ |${GREEN}All Files Compiled${RESET}     ║"
+	@echo "	╚═════════════════════════════════════╝"  
 
-RESET = \033[0m      
-BOLD = \033[1m   
-RED = \033[31m      
-GREEN = \033[32m   
-YELLOW = \033[33m  
-BLUE = \033[34m     
-MAGENTA = \033[35m   
-CYAN = \033[36m      
-WHITE = \033[37m  
-
-all:${NAME} 
+%.o: %.c
+	@echo "${GREEN}${BOLD}✅ | Compiling $<...${RESET}"
+	@${CC} ${CFLAGS} -c $< -o $@
 
 clean:
-		${RM} ${OBJS}
+	@${RM} ${OBJS} 
 	@echo "	╔═════════════════════════════════════╗"
-	@echo "	║ 🗑️  |${BOLD}Cleaned Successfully!${RESET}  ║"
+	@echo "	║ 🗑️  |${BOLD}Cleaned Successfully!${RESET}   ║"
 	@echo "	╚═════════════════════════════════════╝"
  
 fclean: clean
-		${RM} ${NAME}
+	@${RM} ${NAME}
 	@echo "	╔═════════════════════════════════════╗"
 	@echo "	║ 🗑️  |${CYAN}Full Clean Done!${RESET}    ║"
 	@echo "	╚═════════════════════════════════════╝"
@@ -73,3 +66,13 @@ fclean: clean
 
 re: fclean all
 .PHONY: all clean fclean re
+
+RESET = \033[0m      
+BOLD = \033[1m  
+RED = \033[31m      
+GREEN = \033[32m   
+YELLOW = \033[33m  
+BLUE = \033[34m     
+MAGENTA = \033[35m   
+CYAN = \033[36m      
+WHITE = \033[37m

@@ -6,7 +6,7 @@
 /*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 10:24:35 by ggomes-v          #+#    #+#             */
-/*   Updated: 2025/01/07 11:29:23 by ggomes-v         ###   ########.fr       */
+/*   Updated: 2025/01/21 16:24:14 by ggomes-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,8 +15,9 @@
 
 #include <stdlib.h>
 #include <unistd.h>
-#include <stdio.h>
+#include <limits.h>
 
+#include <stdio.h> //TIRAR ISTO !!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 typedef struct s_list
 {
     int     value;
@@ -38,6 +39,12 @@ typedef struct s_list
     void	ft_putendl_fd(char *s, int fd);
     void	ft_putchar_fd(char c, int fd);  
     void	ft_putstr_fd(char *s, int fd);
+    int     ft_ints(int ac, char **av);
+    int     ft_is_double(int ac, char **av);
+    int     ft_compare(int n, char **av);
+    int     is_sorted(t_list *stack_a);
+
+
 
 
 //----------------------> FT_PRINTF <-------------------------
@@ -55,6 +62,6 @@ typedef struct s_list
     char	*if_null(char **array, int a);
     char	*save_words(const char *s, char c);
     int     count_words(char const *str, char c);
-    int     ft_atoi(const char *nptr);
+    long    ft_atol(const char *str);
 
 #endif
