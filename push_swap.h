@@ -6,7 +6,7 @@
 /*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/07 10:24:35 by ggomes-v          #+#    #+#             */
-/*   Updated: 2025/01/21 16:24:14 by ggomes-v         ###   ########.fr       */
+/*   Updated: 2025/01/23 15:02:01 by ggomes-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,28 @@ typedef struct s_list
     int     ft_is_double(int ac, char **av);
     int     ft_compare(int n, char **av);
     int     is_sorted(t_list *stack_a);
+    void    simple_sort(t_list **stack_a, t_list **stack_b);
+    void    move_min_to_top(t_list **stack);
+
+    
+    int     sa(t_list **stack_a);
+    int     sb(t_list **stack_b);
+
+    int     swap(t_list **stack);
+
+    int     pa(t_list **stack_a, t_list **stack_b);
+    int     pb(t_list **stack_a, t_list **stack_b);
+    int     push(t_list **stack_to, t_list **stack_from);
+
+    int     ra(t_list **stack_a);
+    int     rotate(t_list **stack);
+
+    int     rra(t_list **stack_a);
+    int     reverseRotate(t_list **stack);
+
+    void    sort_3(t_list **stack_a);
+    void    sort_4(t_list **stack_a, t_list **stack_b);
+
 
 
 
@@ -63,5 +85,6 @@ typedef struct s_list
     char	*save_words(const char *s, char c);
     int     count_words(char const *str, char c);
     long    ft_atol(const char *str);
+    int	ft_lstsize(t_list *lst);
 
 #endif

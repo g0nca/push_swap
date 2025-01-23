@@ -6,7 +6,7 @@
 #    By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 13:11:58 by ggomes-v          #+#    #+#              #
-#    Updated: 2025/01/21 16:04:17 by ggomes-v         ###   ########.fr        #
+#    Updated: 2025/01/22 11:15:20 by ggomes-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -27,11 +27,15 @@ LIBFT = includes/libft/ft_split.c\
 		includes/libft/ft_putnbr_fd.c\
 		includes/libft/ft_putendl_fd.c\
 		includes/libft/ft_atol.c\
+		includes/libft/ft_lstsize.c\
 
 SRCS = push_swap.c\
 		ft_checks.c\
 		lst.c\
 		utils.c\
+		sort_algorithm.c\
+		instructions.c\
+		
 
 ALL_SRCS = $(SRCS) $(FT_PRINTF) $(LIBFT) 
 

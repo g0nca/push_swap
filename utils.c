@@ -26,3 +26,31 @@ int     is_sorted(t_list *stack_a)
     }
     return (1);
 }
+void    move_min_to_top(t_list **stack)
+{
+    t_list *head;
+    int min_value = INT_MAX;
+    int min_index = 0;
+    int i = 0;
+    int size = ft_lstsize(*stack);
+    head = *stack;
+    while (head)
+    {
+        if (head->value < min_value)
+        {
+            min_value = head->value;
+            min_index = i;
+        }
+        head = head->next;
+        i++;
+    }
+    if (min_index <= size / 2)
+        while (min_index-- > 0)
+            ra(stack);
+    else
+    {
+        min_index = size - min_index;
+        while (min_index-- > 0)
+            rra(stack);
+    }
+}

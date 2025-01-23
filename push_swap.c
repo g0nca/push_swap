@@ -35,7 +35,10 @@ void init_stack(t_list **stack, int ac, char **av)
 }
 void    sort_stack(t_list **stack_a, t_list **stack_b)
 {
-    
+    if (ft_lstsize(*stack_a) <= 5)
+        simple_sort(stack_a, stack_b);
+    else
+        printf("ADEUS");
 }
 
 int     main(int ac, char **av)
@@ -58,9 +61,12 @@ int     main(int ac, char **av)
         ft_lstfree(stack_a);
         ft_lstfree(stack_b);
         return (0);
-    }
+    }   
     sort_stack(stack_a, stack_b);
-    printlist(*stack_a);
+    //printf("---> Stack_a <---\n");
+    //printlist(*stack_a);
+    //printf("---> Stack_b <---\n");
+    printlist(*stack_b);
     ft_lstfree(stack_a);
     ft_lstfree(stack_b);
     return (0);
