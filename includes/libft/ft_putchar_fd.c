@@ -3,12 +3,13 @@
 /*                                                        :::      ::::::::   */
 /*   ft_putchar_fd.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: ggomes-v <marvin@42.fr>                    +#+  +:+       +#+        */
+/*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/11/04 15:27:15 by ggomes-v          #+#    #+#             */
-/*   Updated: 2024/11/04 15:28:36 by ggomes-v         ###   ########.fr       */
+/*   Updated: 2025/01/27 11:05:43 by ggomes-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
+
 #include "libft.h"
 
 void	ft_putchar_fd(char c, int fd)

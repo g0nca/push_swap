@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   utils.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/04 13:47:38 by ggomes-v          #+#    #+#             */
+/*   Updated: 2025/02/04 15:07:10 by ggomes-v         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void    ft_free(char **str)
@@ -16,15 +28,49 @@ void    ft_error(void)
 {
     ft_printf("Error\n");
 }
-int     is_sorted(t_list *stack_a)
+//Check if the stack is sorted
+int	ft_checksorted(t_list *stack_a)
 {
-    while (stack_a->next)
-    {
-        if (stack_a->value > stack_a->next->value)
-            return (0);
-        stack_a = stack_a->next;
-    }
-    return (1);
+	int	i;
+
+	i = stack_a->value;
+	while (stack_a)
+	{
+		if (i > stack_a->value)
+			return (0);
+		i = stack_a->value;
+		stack_a = stack_a->next;
+	}
+	return (1);
+}
+//finds and returns the smallest number in the given stack.
+int	ft_min(t_list *a)
+{
+	int		i;
+
+	i = a->value;
+	while (a)
+	{
+		if (a->value < i)
+			i = a->value;
+		a = a->next;
+	}
+	return (i);
+}
+
+//finds and returns the biggest number in the given stack.
+int	ft_max(t_list *a)
+{
+	int		i;
+
+	i = a->value;
+	while (a)
+	{
+		if (a->value > i)
+			i = a->value;
+		a = a->next;
+	}
+	return (i);
 }
 void    move_min_to_top(t_list **stack)
 {
@@ -46,11 +92,11 @@ void    move_min_to_top(t_list **stack)
     }
     if (min_index <= size / 2)
         while (min_index-- > 0)
-            ra(stack);
+            ft_ra(stack, 0);
     else
     {
         min_index = size - min_index;
         while (min_index-- > 0)
-            rra(stack);
+            ft_rra(stack, 0);
     }
 }

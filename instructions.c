@@ -1,131 +1,125 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   instructions.c                                     :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/04 13:31:06 by ggomes-v          #+#    #+#             */
+/*   Updated: 2025/02/04 13:31:15 by ggomes-v         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
-
-int     swap(t_list **stack)
+// rr : ra and rb at the same time
+void	ft_rr(t_list **a, t_list **b, int j)
 {
-    t_list  *head;
-    t_list  *next;
-    int     tmp_val;
+	t_list	*tmp;
 
-    if (ft_lstsize(*stack) < 2)
-        return (-1);
-    head = *stack;
-    next = head->next;
-    if (!head && !next)
-        ft_error();
-    tmp_val = head->value;
-    head->value = next->value;
-    next->value = tmp_val;
-    return (0);
+	if (!*a || !((*a)->next) || !*b || !((*b)->next))
+		return ;
+	tmp = *a;
+	*a = ft_lstlast(*a);
+	(*a)->next = tmp;
+	*a = tmp->next;
+	tmp->next = NULL;
+	tmp = *b;
+	*b = ft_lstlast(*b);
+	(*b)->next = tmp;
+	*b = tmp->next;
+	tmp->next = NULL;
+	if (j == 0)
+		write(1, "rr\n", 3);
 }
 
-int     sa(t_list **stack_a)
+// Second part of the rrr function
+void	ft_rrr_sub(t_list **b, int j)
 {
-    if(swap(stack_a) == -1)
-        return (-1);
-    ft_printf("sa\n");
-    return (0);
-}
-int     sb(t_list **stack_b)
-{
-    if (swap(stack_b) == -1)
-        return (-1);
-    ft_printf("sb\n");
-    return (0);
-}
-int     push(t_list **stack_to, t_list **stack_from)
-{
-    t_list *tmp;
-    t_list *head_to;
-    t_list *head_from;
+	t_list	*tmp;
+	int		i;
 
-    if (ft_lstsize(*stack_from) == 0)
-        return (-1);
-    head_to = *stack_to;
-    head_from = *stack_from;
-    tmp = head_from;
-    head_from = head_from->next;
-    *stack_from = head_from;
-    if (!head_to)
-    {
-        head_to = tmp;
-        head_to->next = NULL;
-        *stack_to = head_to;
-    }
-    else
-    {
-        tmp->next = head_to;
-        *stack_to = tmp;
-    }
-    return (0);
-
+	i = 0;
+	tmp = *b;
+	while ((*b)->next)
+	{
+		i++;
+		*b = (*b)->next;
+	}
+	(*b)->next = tmp;
+	while (i > 1)
+	{
+		tmp = tmp->next;
+		i--;
+	}
+	tmp->next = NULL;
+	if (j == 0)
+		write(1, "rrr\n", 4);
 }
 
-int     pa(t_list **stack_a, t_list **stack_b)
+// rrr : rra and rrb at the same time.
+void	ft_rrr(t_list **a, t_list **b, int j)
 {
-    if (push(stack_a, stack_b) == -1)
-        return (-1);
-    ft_printf("pa\n");
-    return (0);
-}
-int     pb(t_list **stack_a, t_list **stack_b)
-{
-    if (push(stack_b, stack_a) == -1)
-        return (-1);
-    ft_printf("pb\n");
-    return (0);
-}
+	t_list	*tmp;
+	int		i;
 
-int     rotate(t_list **stack)
-{
-    t_list *head;
-    t_list *last;
-
-    if (ft_lstsize(*stack) < 2)
-        return (-1);
-    head = *stack;
-    last = ft_lstlast(head);
-    *stack = head->next;
-    head->next = NULL;
-    last->next = head;
-    return (0);
+	if (!*a || !((*a)->next) || !*b || !((*b)->next))
+		return ;
+	i = 0;
+	tmp = *a;
+	while ((*a)->next)
+	{
+		i++;
+		*a = (*a)->next;
+	}
+	(*a)->next = tmp;
+	while (i > 1)
+	{
+		tmp = tmp->next;
+		i--;
+	}
+	tmp->next = NULL;
+	ft_rrr_sub(b, j);
 }
 
-int     ra(t_list **stack_a)
+// pb (push b) : take the first element at the top of a and put it 
+// at the top of b. Do nothing if a is empty.
+void	ft_pb(t_list **stack_a, t_list **stack_b, int j)
 {
-    if (rotate(stack_a) == -1)
-        return (-1);
-    ft_printf("ra\n");
-    return (0);
+	t_list	*tmp;
+
+	if (!*stack_a)
+		return ;
+	tmp = *stack_b;
+	*stack_b = *stack_a;
+	*stack_a = (*stack_a)->next;
+	(*stack_b)->next = tmp;
+	if (j == 0)
+		write(1, "pb\n", 3);
 }
 
-int     reverseRotate(t_list **stack)
+// rrb (reverse rotate b) : shift down all elements of stack b by 1. 
+// The last element becomes the first one.
+void	ft_rrb(t_list **b, int j)
 {
-    t_list  *head;
-    t_list  *last;
+	t_list	*tmp;
+	int		i;
 
-    if (ft_lstsize(*stack) < 2)
-        return (-1);
-    head = *stack;
-    last = ft_lstlast(head);
-    while (head)
-    {
-        if (head->next->next == NULL)
-        {
-            head->next = NULL;
-            break ;
-        }
-        head = head->next;
-    }
-    last->next = *stack;
-    *stack = last;
-    return (0);
-    
-}
-
-int     rra(t_list **stack_a)
-{
-    if (reverseRotate(stack_a) == -1)
-        return (-1);
-    ft_printf("rra\n");
-    return (0);
+	if (!*b || !(*b)->next)
+		return ;
+	i = 0;
+	tmp = *b;
+	while ((*b)->next)
+	{
+		i++;
+		*b = (*b)->next;
+	}
+	(*b)->next = tmp;
+	while (i > 1)
+	{
+		tmp = tmp->next;
+		i--;
+	}
+	tmp->next = NULL;
+	if (j == 0)
+		write(1, "rrb\n", 4);
 }

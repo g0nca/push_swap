@@ -6,7 +6,7 @@
 #    By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 13:11:58 by ggomes-v          #+#    #+#              #
-#    Updated: 2025/01/22 11:15:20 by ggomes-v         ###   ########.fr        #
+#    Updated: 2025/02/04 13:30:10 by ggomes-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -33,9 +33,16 @@ SRCS = push_swap.c\
 		ft_checks.c\
 		lst.c\
 		utils.c\
-		sort_algorithm.c\
+		simple_sort.c\
+		main_sort.c\
+		case_calculation.c\
+		case_calculation2.c\
+		apply_cases.c\
+		rotate_type.c\
 		instructions.c\
-		
+		instructions2.c\
+		instructions3.c\
+		index.c\
 
 ALL_SRCS = $(SRCS) $(FT_PRINTF) $(LIBFT) 
 

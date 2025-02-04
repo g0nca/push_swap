@@ -19,10 +19,6 @@ long    ft_atol(const char *str)
         i++;
     }
     j = i;
-    while (str[i])
-        i++;
-    if(i > 11)
-        return (1);
     while (str[j] >= '0' && str[j] <= '9')
     {
         result = result * 10 + str[j] - '0';

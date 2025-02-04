@@ -38,7 +38,7 @@ void    sort_stack(t_list **stack_a, t_list **stack_b)
     if (ft_lstsize(*stack_a) <= 5)
         simple_sort(stack_a, stack_b);
     else
-        printf("ADEUS");
+        ft_sort(stack_a);
 }
 
 int     main(int ac, char **av)
@@ -56,17 +56,18 @@ int     main(int ac, char **av)
     *stack_a = NULL;
     *stack_b = NULL;
     init_stack(stack_a, ac, av);
-    if (is_sorted(*stack_a) == 1)
+    if (ft_checksorted(*stack_a) == 1)
     {
         ft_lstfree(stack_a);
         ft_lstfree(stack_b);
         return (0);
-    }   
+    }
+    init_index(stack_a);
     sort_stack(stack_a, stack_b);
-    //printf("---> Stack_a <---\n");
-    //printlist(*stack_a);
+    printf("---> Stack_a <---\n");
+    printlist(*stack_a);
     //printf("---> Stack_b <---\n");
-    printlist(*stack_b);
+    //printlist(*stack_b);
     ft_lstfree(stack_a);
     ft_lstfree(stack_b);
     return (0);

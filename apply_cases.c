@@ -1,0 +1,111 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   apply_cases.c                                      :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/04 13:28:38 by ggomes-v          #+#    #+#             */
+/*   Updated: 2025/02/04 13:29:12 by ggomes-v         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
+#include "push_swap.h"
+
+int	ft_apply_rarb(t_list **a, t_list **b, int c, char s)
+{
+	if (s == 'a')
+	{
+		while ((*a)->value != c && ft_find_place_b(*b, c) > 0)
+			ft_rr(a, b, 0);
+		while ((*a)->value != c)
+			ft_ra(a, 0);
+		while (ft_find_place_b(*b, c) > 0)
+			ft_rb(b, 0);
+		ft_pb(a, b, 0);
+	}
+	else
+	{
+		while ((*b)->value != c && ft_find_place_a(*a, c) > 0)
+			ft_rr(a, b, 0);
+		while ((*b)->value != c)
+			ft_rb(b, 0);
+		while (ft_find_place_a(*a, c) > 0)
+			ft_ra(a, 0);
+		ft_pa(a, b, 0);
+	}
+	return (-1);
+}
+
+// This function rotate both stack_a and stack_b in the
+// reverse direction as required amount.
+int	ft_apply_rrarrb(t_list **a, t_list **b, int c, char s)
+{
+	if (s == 'a')
+	{
+		while ((*a)->value != c && ft_find_place_b(*b, c) > 0)
+			ft_rrr(a, b, 0);
+		while ((*a)->value != c)
+			ft_rra(a, 0);
+		while (ft_find_place_b(*b, c) > 0)
+			ft_rrb(b, 0);
+		ft_pb(a, b, 0);
+	}
+	else
+	{
+		while ((*b)->value != c && ft_find_place_a(*a, c) > 0)
+			ft_rrr(a, b, 0);
+		while ((*b)->value != c)
+			ft_rrb(b, 0);
+		while (ft_find_place_a(*a, c) > 0)
+			ft_rra(a, 0);
+		ft_pa(a, b, 0);
+	}
+	return (-1);
+}
+
+// This function rotate the stack_a in reverse direction,
+// the stack_b in oppsite direction of stack_a as required amount.
+int	ft_apply_rrarb(t_list **a, t_list **b, int c, char s)
+{
+	if (s == 'a')
+	{
+		while ((*a)->value != c)
+			ft_rra(a, 0);
+		while (ft_find_place_b(*b, c) > 0)
+			ft_rb(b, 0);
+		ft_pb(a, b, 0);
+	}
+	else
+	{
+		while (ft_find_place_a(*a, c) > 0)
+			ft_rra(a, 0);
+		while ((*b)->value != c)
+			ft_rb(b, 0);
+		ft_pa(a, b, 0);
+	}
+	return (-1);
+}
+
+// This function rotate the stack_b in reverse direction,
+// the stack_a in oppsite direction of stack_a as required amount.
+int	ft_apply_rarrb(t_list **a, t_list **b, int c, char s)
+{
+	if (s == 'a')
+	{
+		while ((*a)->value != c)
+			ft_ra(a, 0);
+		while (ft_find_place_b(*b, c) > 0)
+			ft_rrb(b, 0);
+		ft_pb(a, b, 0);
+	}
+	else
+	{
+		while (ft_find_place_a(*a, c) > 0)
+			ft_ra(a, 0);
+		while ((*b)->value != c)
+			ft_rrb(b, 0);
+		ft_pa(a, b, 0);
+	}
+	return (-1);
+}

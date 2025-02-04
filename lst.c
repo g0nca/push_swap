@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   lst.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/02/04 13:46:41 by ggomes-v          #+#    #+#             */
+/*   Updated: 2025/02/04 13:46:42 by ggomes-v         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 t_list  *ft_lstnew(int value)
@@ -64,6 +76,7 @@ void    printlist(t_list *head)
     while (tmp != NULL)
     {
         ft_putnbr_fd(tmp->value, 1);
+        //printf(" -> INDEX:%d\n", tmp->index);
         ft_putendl_fd("", 1);
         tmp = tmp->next;
     }
