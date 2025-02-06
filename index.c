@@ -6,59 +6,60 @@
 /*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/01/27 11:26:16 by ggomes-v          #+#    #+#             */
-/*   Updated: 2025/02/04 11:51:22 by ggomes-v         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:44:51 by ggomes-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
-t_list  *get_next_min(t_list **stack)
+t_list	*get_next_min(t_list **stack)
 {
-    t_list  *head;
-    t_list  *min;
-    int     has_min;
-    
-    min = NULL;
-    has_min = 0;
-    head = *stack;
-    if (head)
-    {
-        while (head)
-        {
-            if ((head->index == -1) && (!has_min || head->value < min->value))
-            {
-                min = head;
-                has_min = 1;
-            }
-            head = head->next;
-        }
-    }
-    return (min);
-}
-void    init_index(t_list **stack)
-{
-    t_list *head;   
-    int     index;
+	t_list	*head;
+	t_list	*min;
+	int		has_min;
 
-    head = *stack;
-    while (head)
-    {
-        head->index = -1;
-        head = head->next;
-    }
-    index = 0;
-    head = get_next_min(stack);
-    while (head)
-    {
-        head->index = index++;
-        head = get_next_min(stack);
-    }
+	min = NULL;
+	has_min = 0;
+	head = *stack;
+	if (head)
+	{
+		while (head)
+		{
+			if ((head->index == -1) && (!has_min || head->value < min->value))
+			{
+				min = head;
+				has_min = 1;
+			}
+			head = head->next;
+		}
+	}
+	return (min);
 }
+
+void	init_index(t_list **stack)
+{
+	t_list	*head;
+	int		index;
+
+	head = *stack;
+	while (head)
+	{
+		head->index = -1;
+		head = head->next;
+	}
+	index = 0;
+	head = get_next_min(stack);
+	while (head)
+	{
+		head->index = index++;
+		head = get_next_min(stack);
+	}
+}
+
 //Checks the index of a number
 //in the stack.
 int	ft_find_index(t_list *a, int value)
 {
-	int		i;
+	int	i;
 
 	i = 0;
 	while (a->value != value)

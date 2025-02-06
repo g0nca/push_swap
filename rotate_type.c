@@ -6,10 +6,9 @@
 /*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:22:40 by ggomes-v          #+#    #+#             */
-/*   Updated: 2025/02/04 13:24:32 by ggomes-v         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:51:46 by ggomes-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 int	ft_rotate_type_ba(t_list *a, t_list *b)

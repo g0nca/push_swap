@@ -5,11 +5,10 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2024/04/10 16:13:13 by ganjinho          #+#    #+#             */
-/*   Updated: 2025/01/21 09:54:14 by ggomes-v         ###   ########.fr       */
+/*   Created: 2024/04/10 16:13:13 by ggomes-v          #+#    #+#             */
+/*   Updated: 2025/02/05 15:25:10 by ggomes-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #ifndef LIBFT_H
 # define LIBFT_H
 
@@ -66,6 +65,5 @@ void	ft_lstdelone(t_list *lst, void (*del)(void*));
 void	ft_lstclear(t_list **lst, void (*del)(void*));
 void	ft_lstadd_front(t_list **lst, t_list *new);
 void	ft_lstadd_back(t_list **lst, t_list *new);
-long    ft_atol(const char *str);
-
+long	ft_atol(const char *str);
 #endif

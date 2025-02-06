@@ -6,7 +6,7 @@
 #    By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2024/11/13 13:11:58 by ggomes-v          #+#    #+#              #
-#    Updated: 2025/02/04 13:30:10 by ggomes-v         ###   ########.fr        #
+#    Updated: 2025/02/05 10:53:16 by ggomes-v         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -31,6 +31,7 @@ LIBFT = includes/libft/ft_split.c\
 
 SRCS = push_swap.c\
 		ft_checks.c\
+		ft_checks_double.c\
 		lst.c\
 		utils.c\
 		simple_sort.c\

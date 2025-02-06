@@ -6,10 +6,9 @@
 /*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:27:17 by ggomes-v          #+#    #+#             */
-/*   Updated: 2025/02/04 13:27:55 by ggomes-v         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:41:25 by ggomes-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 // This function calculates the required amount of rotation.

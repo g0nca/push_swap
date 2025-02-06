@@ -6,10 +6,9 @@
 /*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:26:18 by ggomes-v          #+#    #+#             */
-/*   Updated: 2025/02/04 13:26:45 by ggomes-v         ###   ########.fr       */
+/*   Updated: 2025/02/05 14:41:06 by ggomes-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
-
 #include "push_swap.h"
 
 // This function calculates how many times 

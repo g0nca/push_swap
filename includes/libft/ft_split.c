@@ -6,7 +6,7 @@
 /*   By: ggomes-v <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2024/10/29 12:28:15 by ggomes-v          #+#    #+#             */
-/*   Updated: 2024/11/07 13:32:02 by ggomes-v         ###   ########.fr       */
+/*   Updated: 2025/02/05 15:19:42 by ggomes-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "libft.h"
@@ -109,7 +109,7 @@ int	main(void)
 {
 	int i = 0;
 	char	**tabstr;
-	if (!(tabstr = ft_split("   elit. Sed no n  ris u s. S  uspendisse   ", ' ')))
+	if (!(tabstr = ft_split(" e n disse   ", ' ')))
 		printf("NULL");
 	else
 	{

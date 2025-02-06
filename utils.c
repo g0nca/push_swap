@@ -6,28 +6,11 @@
 /*   By: ggomes-v <ggomes-v@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2025/02/04 13:47:38 by ggomes-v          #+#    #+#             */
-/*   Updated: 2025/02/04 15:07:10 by ggomes-v         ###   ########.fr       */
+/*   Updated: 2025/02/06 11:47:51 by ggomes-v         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-void    ft_free(char **str)
-{
-    int i;
-
-    i = 0;
-    while(str[i])
-    {
-        free(str[i]);
-        i++;
-    }
-    free(str);
-}
-void    ft_error(void)
-{
-    ft_printf("Error\n");
-}
 //Check if the stack is sorted
 int	ft_checksorted(t_list *stack_a)
 {
@@ -43,6 +26,7 @@ int	ft_checksorted(t_list *stack_a)
 	}
 	return (1);
 }
+
 //finds and returns the smallest number in the given stack.
 int	ft_min(t_list *a)
 {
@@ -61,7 +45,7 @@ int	ft_min(t_list *a)
 //finds and returns the biggest number in the given stack.
 int	ft_max(t_list *a)
 {
-	int		i;
+	int	i;
 
 	i = a->value;
 	while (a)
@@ -72,31 +56,42 @@ int	ft_max(t_list *a)
 	}
 	return (i);
 }
-void    move_min_to_top(t_list **stack)
+
+void	move_min_to_top(t_list **stack)
 {
-    t_list *head;
-    int min_value = INT_MAX;
-    int min_index = 0;
-    int i = 0;
-    int size = ft_lstsize(*stack);
-    head = *stack;
-    while (head)
-    {
-        if (head->value < min_value)
-        {
-            min_value = head->value;
-            min_index = i;
-        }
-        head = head->next;
-        i++;
-    }
-    if (min_index <= size / 2)
-        while (min_index-- > 0)
-            ft_ra(stack, 0);
-    else
-    {
-        min_index = size - min_index;
-        while (min_index-- > 0)
-            ft_rra(stack, 0);
-    }
+	t_list	*head;
+	int		min_value;
+	int		min_index;
+	int		i;
+	int		size;
+
+	min_value = INT_MAX;
+	min_index = 0;
+	i = 0;
+	size = ft_lstsize(*stack);
+	head = *stack;
+	while (head)
+	{
+		if (head->value < min_value)
+		{
+			min_value = head->value;
+			min_index = i;
+		}
+		head = head->next;
+		i++;
+	}
+	move_min_to_top2(min_index, size, stack);
+}
+
+void	move_min_to_top2(int min_index, int size, t_list **stack)
+{
+	if (min_index <= size / 2)
+		while (min_index-- > 0)
+			ft_ra(stack);
+	else
+	{
+		min_index = size - min_index;
+		while (min_index-- > 0)
+			ft_rra(stack);
+	}
 }
